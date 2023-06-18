@@ -1,16 +1,15 @@
 
-import Card from './components/Card'
+import Homebackground from './components/Home/Homebackground'
 import Navbar from './components/Navbar'
 
 function App() {
   
 
   return (
-    <div className='w-screen h-screen bg-slate-900'>
+    <div className='h-screen'>
       <Navbar/>
       <div className='flex flex-col items-center'>
-        <h1 className='text-3xl font-bold text-white p-12'>Seas + Axel</h1>
-        <Card/>
+        <Homebackground/>
       </div>
     </div>
   )
