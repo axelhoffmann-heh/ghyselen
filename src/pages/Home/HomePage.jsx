@@ -1,14 +1,17 @@
 import React from 'react'
-import Navbar from '../../components/Navbar'
 import Homebackground from '../../components/Home/Homebackground'
+import GridContent from '../../components/Home/GridContent'
+import Layout from '../../components/Layout'
 
 export default function HomePage() {
   return (
-    <div className='h-screen'>
-      <Navbar/>
+    <Layout>
       <div className='flex flex-col items-center'>
         <Homebackground/>
       </div>
-    </div>
+      <div>
+        <GridContent/>
+      </div>
+    </Layout>
   )
 }

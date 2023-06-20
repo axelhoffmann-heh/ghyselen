@@ -1,25 +1,31 @@
+import React from 'react'
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
-import Footer from './components/Footer'
-import GridContent from './components/Home/GridContent'
-import Homebackground from './components/Home/Homebackground'
-import Navbar from './components/Navbar'
+
+import HomePage from './pages/Home/HomePage';
+import Error from './pages/Error';
+import Login from './pages/Admin/Login';
+import HomeMobilierPage from './pages/Admin/ModMobilier/HomeMobilierPage';
+import ProtectedRoute from './components/ProtectedRoute';
 
 function App() {
   
 
   return (
-    <div className='h-screen'>
-      <Navbar/>
-      <div className='flex flex-col items-center'>
-        <Homebackground/>
-      </div>
-      <div>
-        <GridContent/>
-      </div>
-      <div>
-        <Footer/>
-      </div>
-    </div>
+    <Router>
+      <Routes>
+        <Route path="*" element={<Error/>}/>
+        <Route path='/' element={<HomePage/>}/>
+        <Route path='/home' element={<HomePage/>}/>
+        <Route path='/admin'>
+          <Route index element={<Login/>}/>
+          <Route path='login' element={<Login/>}/>
+          <Route element={<ProtectedRoute/>}>
+            <Route path='home' element={<HomeMobilierPage/>}/>
+          </Route>
+        </Route>
+      </Routes>
+    </Router>
   )
 }
 
